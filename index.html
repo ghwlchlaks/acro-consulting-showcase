@@ -3,101 +3,379 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Acro Consulting - 기업 가치 제고를 위한 실행형 경영 자문</title>
-  <meta name="description" content="산업별 실무 전문가들이 제공하는 데이터 기반 비즈니스 모델 재설계 및 엔터프라이즈 운영 프로세스 최적화 자문.">
-  <link rel="stylesheet" href="./style.css">
+  <title>메디컬 솔루션 | 병·의원 전문 개원 및 경영 컨설팅</title>
+  <meta name="description" content="전국 병·의원 개원 입지 분석, 초기 세팅, 직원 교육, 마케팅 및 경영 리뉴얼 전문 컨설팅 파트너.">
+  <link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css" />
+  <style>
+    :root {
+      --primary: #0a2540;
+      --primary-light: #1e3a8a;
+      --accent: #0284c7;
+      --accent-gold: #c29d59;
+      --bg-white: #ffffff;
+      --bg-light: #f8fafc;
+      --bg-subtle: #f1f5f9;
+      --text-dark: #0f172a;
+      --text-gray: #475569;
+      --text-muted: #94a3b8;
+      --border-color: #e2e8f0;
+      --max-width: 1200px;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; font-family: "Pretendard", -apple-system, BlinkMacSystemFont, system-ui, Roboto, sans-serif; }
+    body { background-color: var(--bg-white); color: var(--text-dark); line-height: 1.6; word-break: keep-all; }
+    a { color: inherit; text-decoration: none; }
+
+    /* Sticky GNB */
+    header {
+      position: sticky; top: 0; background: rgba(255, 255, 255, 0.96);
+      backdrop-filter: blur(8px); border-bottom: 1px solid var(--border-color); z-index: 100;
+    }
+    .header-inner {
+      max-width: var(--max-width); margin: 0 auto; padding: 18px 24px;
+      display: flex; justify-content: space-between; align-items: center;
+    }
+    .brand-logo {
+      font-size: 20px; font-weight: 800; color: var(--primary); letter-spacing: -0.5px;
+      display: flex; align-items: center; gap: 8px;
+    }
+    .brand-logo span { color: var(--accent); }
+    .brand-badge {
+      font-size: 11px; background: var(--bg-subtle); color: var(--primary);
+      padding: 3px 8px; border-radius: 4px; font-weight: 600;
+    }
+    nav ul { display: flex; list-style: none; gap: 32px; align-items: center; }
+    nav a { font-size: 15px; font-weight: 600; color: var(--text-gray); transition: color 0.2s; }
+    nav a:hover { color: var(--primary); }
+    .btn-header-call {
+      background: var(--primary); color: #fff; padding: 10px 20px;
+      border-radius: 6px; font-size: 14px; font-weight: 700; transition: background 0.2s;
+    }
+    .btn-header-call:hover { background: var(--primary-light); }
+
+    /* Hero Section (White/Navy High-Trust Clean Layout) */
+    .hero {
+      background: linear-gradient(180deg, #f8fafc 0%, #ffffff 100%);
+      padding: 90px 24px 80px; text-align: center; border-bottom: 1px solid var(--border-color);
+    }
+    .hero-container { max-width: 900px; margin: 0 auto; }
+    .hero-pretitle {
+      font-size: 15px; font-weight: 700; color: var(--accent); letter-spacing: 0.5px; margin-bottom: 16px;
+    }
+    .hero h1 {
+      font-size: clamp(32px, 4.5vw, 52px); font-weight: 900; line-height: 1.25;
+      color: var(--primary); letter-spacing: -1.2px; margin-bottom: 24px;
+    }
+    .hero h1 span { color: var(--accent); }
+    .hero p {
+      font-size: clamp(16px, 1.8vw, 19px); color: var(--text-gray); line-height: 1.7;
+      margin-bottom: 40px; font-weight: 500;
+    }
+    .hero-buttons { display: flex; justify-content: center; gap: 14px; flex-wrap: wrap; }
+    .btn-hero-primary {
+      background: var(--accent); color: #fff; padding: 16px 36px;
+      border-radius: 8px; font-size: 16px; font-weight: 700; box-shadow: 0 4px 14px rgba(2, 132, 199, 0.25);
+    }
+    .btn-hero-secondary {
+      background: #fff; border: 1px solid var(--border-color); color: var(--primary);
+      padding: 16px 32px; border-radius: 8px; font-size: 16px; font-weight: 700;
+    }
+
+    /* Track Record Bar */
+    .track-record {
+      max-width: var(--max-width); margin: -40px auto 70px; padding: 0 24px; position: relative; z-index: 10;
+    }
+    .record-card-row {
+      background: #fff; border: 1px solid var(--border-color); border-radius: 12px;
+      padding: 32px 40px; display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px;
+      box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.05); text-align: center;
+    }
+    .record-item { border-right: 1px solid var(--border-color); }
+    .record-item:last-child { border-right: none; }
+    .record-num { font-size: 36px; font-weight: 900; color: var(--primary); line-height: 1; margin-bottom: 8px; }
+    .record-num span { font-size: 20px; color: var(--accent); }
+    .record-label { font-size: 14px; font-weight: 600; color: var(--text-gray); }
+
+    /* Why Section */
+    .section-wrap { max-width: var(--max-width); margin: 0 auto; padding: 80px 24px; }
+    .section-header { text-align: center; margin-bottom: 60px; }
+    .section-tag { font-size: 13px; font-weight: 800; color: var(--accent); letter-spacing: 1px; margin-bottom: 12px; }
+    .section-title { font-size: clamp(26px, 3.2vw, 38px); font-weight: 900; color: var(--primary); letter-spacing: -0.8px; margin-bottom: 16px; }
+    .section-desc { font-size: 17px; color: var(--text-gray); max-width: 680px; margin: 0 auto; line-height: 1.6; }
+
+    .why-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 28px; }
+    .why-card {
+      background: var(--bg-light); border: 1px solid var(--border-color); border-radius: 12px;
+      padding: 36px 30px; transition: transform 0.2s, box-shadow 0.2s;
+    }
+    .why-card:hover { transform: translateY(-4px); box-shadow: 0 12px 24px rgba(0,0,0,0.06); }
+    .why-badge { font-size: 12px; font-weight: 700; color: var(--accent-gold); margin-bottom: 14px; }
+    .why-card h3 { font-size: 20px; font-weight: 800; color: var(--primary); margin-bottom: 14px; letter-spacing: -0.4px; }
+    .why-card p { font-size: 15px; color: var(--text-gray); line-height: 1.65; }
+
+    /* Program Section */
+    .program-bg { background-color: var(--bg-light); border-block: 1px solid var(--border-color); }
+    .program-list { display: flex; flex-direction: column; gap: 20px; }
+    .program-item {
+      background: #fff; border: 1px solid var(--border-color); border-radius: 12px; padding: 36px 40px;
+      display: grid; grid-template-columns: 280px 1fr 140px; gap: 32px; align-items: center;
+    }
+    .program-step { font-size: 13px; font-weight: 800; color: var(--accent); margin-bottom: 8px; }
+    .program-title { font-size: 22px; font-weight: 800; color: var(--primary); letter-spacing: -0.5px; }
+    .program-body { font-size: 15px; color: var(--text-gray); line-height: 1.65; }
+    .program-meta { text-align: right; }
+    .program-tag {
+      display: inline-block; background: var(--bg-subtle); color: var(--primary);
+      font-size: 12px; font-weight: 700; padding: 6px 14px; border-radius: 6px;
+    }
+
+    /* Consultation Form Section */
+    .inquiry-box {
+      background: #fff; border: 1px solid var(--border-color); border-radius: 16px;
+      padding: 48px 56px; box-shadow: 0 10px 30px rgba(0,0,0,0.04); max-width: 800px; margin: 0 auto;
+    }
+    .form-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-top: 30px; }
+    .form-full { grid-column: span 2; }
+    .form-group label { display: block; font-size: 14px; font-weight: 700; color: var(--primary); margin-bottom: 8px; }
+    .form-group input, .form-group select, .form-group textarea {
+      width: 100%; padding: 13px 16px; border: 1px solid var(--border-color); border-radius: 6px;
+      font-size: 15px; background: var(--bg-light); color: var(--text-dark); outline: none;
+    }
+    .form-group input:focus, .form-group textarea:focus { border-color: var(--accent); background: #fff; }
+    .btn-submit {
+      width: 100%; background: var(--primary); color: #fff; border: none; padding: 16px;
+      font-size: 16px; font-weight: 800; border-radius: 8px; cursor: pointer; margin-top: 24px;
+      transition: background 0.2s;
+    }
+    .btn-submit:hover { background: var(--primary-light); }
+
+    /* Footer */
+    footer { background: var(--primary); color: #94a3b8; padding: 60px 24px; font-size: 13px; line-height: 1.8; }
+    .footer-inner { max-width: var(--max-width); margin: 0 auto; display: flex; justify-content: space-between; align-items: flex-end; }
+    .footer-brand { font-size: 18px; font-weight: 800; color: #fff; margin-bottom: 12px; }
+
+    /* Floating Quick Bar */
+    .floating-bar {
+      position: fixed; bottom: 24px; right: 24px; z-index: 1000;
+      display: flex; gap: 12px;
+    }
+    .float-btn {
+      background: #0284c7; color: #fff; padding: 12px 22px; border-radius: 30px;
+      font-size: 14px; font-weight: 800; box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+      display: flex; align-items: center; gap: 8px;
+    }
+    .float-call { background: #0a2540; }
+
+    @media (max-width: 768px) {
+      .header-inner nav ul { display: none; }
+      .record-card-row { grid-template-columns: 1fr 1fr; gap: 24px; }
+      .record-item:nth-child(2) { border-right: none; }
+      .why-grid { grid-template-columns: 1fr; }
+      .program-item { grid-template-columns: 1fr; gap: 16px; }
+      .program-meta { text-align: left; }
+      .form-grid { grid-template-columns: 1fr; }
+      .form-full { grid-column: span 1; }
+      .inquiry-box { padding: 32px 24px; }
+      .footer-inner { flex-direction: column; align-items: flex-start; gap: 20px; }
+    }
+  </style>
 </head>
 <body>
-  <div class="container">
-    <header class="site-nav">
-      <a href="#" class="brand-mark">Acro Consulting</a>
-      <nav aria-label="주요 메뉴">
-        <ul class="nav-links">
-          <li><a href="#capabilities">자문 영역</a></li>
-          <li><a href="#approach">접근 방식</a></li>
-          <li><a href="#inquiry">상담 접수</a></li>
+  <header>
+    <div class="header-inner">
+      <div class="brand-logo">
+        <a href="#">진설 & 리젠 <span>파트너스</span></a>
+        <span class="brand-badge">병·의원 컨설팅</span>
+      </div>
+      <nav aria-label="메인 내비게이션">
+        <ul>
+          <li><a href="#why">컨설팅 소개</a></li>
+          <li><a href="#program">핵심 프로그램</a></li>
+          <li><a href="#record">자문 실적</a></li>
+          <li><a href="#inquiry">상담 신청</a></li>
         </ul>
       </nav>
-    </header>
+      <a href="#inquiry" class="btn-header-call">전화 상담 신청 1533-0120</a>
+    </div>
+  </header>
 
-    <main>
-      <section class="hero-section">
-        <div class="hero-content">
-          <h1>비즈니스의 본질을 설계하는 실행형 경영 자문</h1>
-          <p class="hero-narrative">
-            복잡한 산업 환경에서 추상적인 이론이 아닌 구체적인 실행 계획을 제시합니다.
-            조직 구조 개편부터 디지털 전환(DX)까지 실무 경험을 바탕으로 성장을 견인합니다.
-          </p>
-          <div class="hero-cta">
-            <a href="#inquiry" class="action-primary">자문 신청하기</a>
-            <a href="#capabilities" class="action-secondary">자문 영역 확인</a>
+  <main>
+    <!-- Hero Section -->
+    <section class="hero">
+      <div class="hero-container">
+        <div class="hero-pretitle">성공적인 개원과 안정적인 병원 성장의 공식</div>
+        <h1>병·의원 운영, 더 이상 감으로 하지 마세요<br><span>데이터와 실적으로 증명하는</span> 경영 솔루션</h1>
+        <p>전국 5,000개 이상의 입지 분석 데이터와 150곳 이상의 개원 성공 경험.<br>단순한 조언이 아닌, 지속 가능한 매출과 시스템을 끝까지 책임지고 설계합니다.</p>
+        <div class="hero-buttons">
+          <a href="#inquiry" class="btn-hero-primary">1:1 비공개 방문상담 예약</a>
+          <a href="#program" class="btn-hero-secondary">컨설팅 프로그램 살펴보기</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Track Record Bar -->
+    <section class="track-record" id="record">
+      <div class="record-card-row">
+        <div class="record-item">
+          <div class="record-num">150<span>곳+</span></div>
+          <div class="record-label">전국 병·의원 누적 개원 자문</div>
+        </div>
+        <div class="record-item">
+          <div class="record-num">5,000<span>건+</span></div>
+          <div class="record-label">전국 의료 상권 현장 임장 데이터</div>
+        </div>
+        <div class="record-item">
+          <div class="record-num">최단<span>기간</span></div>
+          <div class="record-label">초기 세팅 및 목표 매출 조기 안착</div>
+        </div>
+        <div class="record-item">
+          <div class="record-num">100<span>%</span></div>
+          <div class="record-label">의료 전문 법무·세무 전략 제휴</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Why Section -->
+    <section class="section-wrap" id="why">
+      <div class="section-header">
+        <div class="section-tag">WHY JINSUL & REGEN</div>
+        <h2 class="section-title">왜 수많은 원장님이 결과로 선택할까요?</h2>
+        <p class="section-desc">개원만 해드리고 끝내지 않습니다. 입지 선정부터 사후 직원 관리와 매출 고점 달성까지, 원장님의 평생 파트너가 됩니다.</p>
+      </div>
+
+      <div class="why-grid">
+        <div class="why-card">
+          <div class="why-badge">POINT 01</div>
+          <h3>발로 뛰는 현장 임장과 정밀 상권 분석</h3>
+          <p>탁상공론식 서류 검토가 아닙니다. 직접 현장을 누비며 유동 인구, 경쟁 의원 진료 패턴, 배후 세대 소비력을 다각도로 분석하여 실패 없는 입지를 발굴합니다.</p>
+        </div>
+        <div class="why-card">
+          <div class="why-badge">POINT 02</div>
+          <h3>빈틈없는 초기 세팅과 직원 실무 교육</h3>
+          <p>인테리어 감리, 의료 장비 리스 협상부터 총괄 실장 및 데스크 직원 실전 응대 매뉴얼 교육까지 원장님께서 진료에만 전념하실 수 있는 환경을 만듭니다.</p>
+        </div>
+        <div class="why-card">
+          <div class="why-badge">POINT 03</div>
+          <h3>긴 계약 기간 파괴, 합리적인 자문료</h3>
+          <p>불필요하게 계약 기간을 늘리지 않습니다. 설계에 필요한 최소 기간, 최적의 비용으로 최단기간 내 병원의 손익분기점(BEP)을 돌파하도록 이끕니다.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Program Section -->
+    <section class="program-bg" id="program">
+      <div class="section-wrap">
+        <div class="section-header">
+          <div class="section-tag">CONSULTING PROGRAMS</div>
+          <h2 class="section-title">성공 개원과 재도약을 위한 맞춤 솔루션</h2>
+          <p class="section-desc">신규 개원부터 기존 병원 경영 리뉴얼까지 원장님의 현재 상황에 맞춘 체계적인 솔루션을 제공합니다.</p>
+        </div>
+
+        <div class="program-list">
+          <div class="program-item">
+            <div>
+              <div class="program-step">PROGRAM 01</div>
+              <h3 class="program-title">신규 개원 All-in-One 솔루션</h3>
+            </div>
+            <div class="program-body">
+              진료권 분석, 입지 선정, 인테리어 설계 감리, 의료 장비 도입, 행정 인허가, 오픈 마케팅까지 개원의 전 과정을 1:1 전담 밀착 지원합니다.
+            </div>
+            <div class="program-meta">
+              <span class="program-tag">신규 개원 전용</span>
+            </div>
+          </div>
+
+          <div class="program-item">
+            <div>
+              <div class="program-step">PROGRAM 02</div>
+              <h3 class="program-title">병원 경영 리뉴얼 & 재도약</h3>
+            </div>
+            <div class="program-body">
+              정체된 매출의 원인을 정밀 진단합니다. 환자 유입 채널 분석, 진료 프로세스 개선, 비급여 프로그램 재설계를 통해 가시적인 매출 반등을 이끌어냅니다.
+            </div>
+            <div class="program-meta">
+              <span class="program-tag">기존 병원 전용</span>
+            </div>
+          </div>
+
+          <div class="program-item">
+            <div>
+              <div class="program-step">PROGRAM 03</div>
+              <h3 class="program-title">의료 전문 법무·세무 안심 제휴</h3>
+            </div>
+            <div class="program-body">
+              의료 분야 특화 법무법인과의 전략적 제휴를 통해 개원부터 운영 과정에서 발생할 수 있는 의료법 위반 리스크와 민·형사 분쟁을 사전에 원천 차단합니다.
+            </div>
+            <div class="program-meta">
+              <span class="program-tag">리스크 관리</span>
+            </div>
           </div>
         </div>
-        <div class="hero-visual" data-slot="hero">
-          <img src="./hero.jpg" alt="Acro Consulting 본사 전경 및 비즈니스 환경" width="600" height="480">
-        </div>
-      </section>
+      </div>
+    </section>
 
-      <section class="capabilities-section" id="capabilities">
-        <div class="section-head">
-          <h2>핵심 자문 분야</h2>
-          <p>기업의 성장 주기와 직면한 과제에 따라 3대 핵심 영역에서 맞춤형 솔루션을 전담 지원합니다.</p>
-        </div>
+    <!-- Consultation Form Section -->
+    <section class="section-wrap" id="inquiry">
+      <div class="section-header">
+        <div class="section-tag">CONTACT US</div>
+        <h2 class="section-title">원장님의 비전을 실현하는 첫걸음</h2>
+        <p class="section-desc">현재 고민 중이신 진료과목과 개원 예정 시기를 남겨주시면, 전문 컨설턴트가 24시간 이내에 비공개 1:1 맞춤 상담을 안내해 드립니다.</p>
+      </div>
 
-        <div class="editorial-rows">
-          <article class="editorial-row">
-            <h3 class="row-title">경영 전략 및 비즈니스 모델 고도화</h3>
-            <p class="row-body">
-              시장 경쟁 구도와 수익 구조를 정밀 진단하여 기업의 경쟁 우위를 점유할 수 있는 현실적인 로드맵을 수립합니다.
-              불필요한 고정비를 절감하고 신성장 동력을 확보하는 구체적 과제를 도출합니다.
-            </p>
-            <div class="row-metric">
-              <strong>14일</strong>
-              초기 전략 진단 완료
+      <div class="inquiry-box">
+        <form onsubmit="event.preventDefault(); alert('상담 신청이 접수되었습니다. 담당 컨설턴트가 신속히 연락드리겠습니다.');">
+          <div class="form-grid">
+            <div class="form-group">
+              <label for="name">원장님 성함 *</label>
+              <input type="text" id="name" placeholder="성함을 입력해 주세요" required>
             </div>
-          </article>
-
-          <article class="editorial-row">
-            <h3 class="row-title">디지털 전환 및 전사 운영 효율화</h3>
-            <p class="row-body">
-              분산된 수기 업무와 파편화된 데이터를 통합 관리 체계로 재편합니다.
-              ERP 연동 및 자동화 프로세스를 구축하여 실무 인력의 생산성을 실질적으로 향상시킵니다.
-            </p>
-            <div class="row-metric">
-              <strong>99.8%</strong>
-              프로세스 정합도 유지
+            <div class="form-group">
+              <label for="phone">연락처 *</label>
+              <input type="tel" id="phone" placeholder="010-0000-0000" required>
             </div>
-          </article>
-
-          <article class="editorial-row">
-            <h3 class="row-title">기업 신뢰도 및 브랜드 거버넌스 구축</h3>
-            <p class="row-body">
-              고객과 투자자 관점에서 기업 가치가 왜곡 없이 전달되도록 브랜드 아이덴티티와 커뮤니케이션 원칙을 정립합니다.
-              지속 가능한 파트너십을 위한 시장 신뢰도를 완성합니다.
-            </p>
-            <div class="row-metric">
-              <strong>88%</strong>
-              장기 파트너십 유지율
+            <div class="form-group">
+              <label for="subject">희망 진료 과목 *</label>
+              <select id="subject" required>
+                <option value="">진료과목을 선택해 주세요</option>
+                <option value="정형외과/통증의학과">정형외과 / 통증의학과</option>
+                <option value="내과/이비인후과">내과 / 이비인후과</option>
+                <option value="피부과/성형외과">피부과 / 성형외과</option>
+                <option value="치과/안과">치과 / 안과</option>
+                <option value="한의원/기타">한의원 / 기타 의원</option>
+              </select>
             </div>
-          </article>
-        </div>
-      </section>
+            <div class="form-group">
+              <label for="region">희망 개원 지역</label>
+              <input type="text" id="region" placeholder="예: 서울 강남구, 경기 성남시">
+            </div>
+            <div class="form-group form-full">
+              <label for="message">문의 및 요청 사항</label>
+              <textarea id="message" rows="4" placeholder="현재 개원 준비 단계나 고민 중이신 내용을 편하게 적어주세요."></textarea>
+            </div>
+          </div>
+          <button type="submit" class="btn-submit">비공개 1:1 상담 신청서 제출하기</button>
+        </form>
+      </div>
+    </section>
+  </main>
 
-      <section class="inquiry-banner" id="inquiry">
-        <div>
-          <h2>귀사의 비즈니스에 최적화된 성장 전략을 함께 모색합니다</h2>
-          <p class="hero-narrative">첫 미팅을 통해 현재 직면한 병목 지점을 진단하고 실현 가능한 대안을 제안해 드립니다.</p>
-        </div>
-        <div>
-          <a href="mailto:contact@acro-consulting.kr" class="action-primary">전문가 상담 요청</a>
-        </div>
-      </section>
-    </main>
+  <footer>
+    <div class="footer-inner">
+      <div>
+        <div class="footer-brand">진설 & 리젠 파트너스</div>
+        <p>전국 병·의원 전문 개원 및 의료경영 컨설팅 | 대표 컨설턴트: 전문 자문단</p>
+        <p>사업자등록번호: 000-00-00000 | 대표 전화: 1533-0120 | 이메일: consulting@jinsul-regen.kr</p>
+        <p>주소: 서울특별시 서초구 서초대로 전문 컨설팅 센터</p>
+      </div>
+      <div>
+        <p>© 2026 Jinsul & Regen Partners. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
 
-    <footer class="site-footer">
-      <span>Acro Consulting Group</span>
-      <span>서울특별시 영등포구 여의대로 108</span>
-    </footer>
+  <!-- Floating Quick Bar -->
+  <div class="floating-bar">
+    <a href="tel:1533-0120" class="float-btn float-call">📞 전화 상담 1533-0120</a>
+    <a href="#inquiry" class="float-btn">📝 실시간 상담 신청</a>
   </div>
 </body>
 </html>
