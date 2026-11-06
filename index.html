@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ACRO Consulting Group - 프리미엄 경영 자문 파트너</title>
+  <link href="https://fonts.googleapis.com/css2?family=Pretendard:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #090a0d;
+      --card-bg: #12141a;
+      --border: #1f222a;
+      --text: #f4f4f6;
+      --text-muted: #8e95a5;
+      --accent: #ea580c;
+      --accent-hover: #c2410c;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Pretendard', sans-serif; }
+    body { background: var(--bg); color: var(--text); line-height: 1.6; overflow-x: clip; }
+    
+    header {
+      border-bottom: 1px solid var(--border);
+      position: sticky; top: 0; background: rgba(9, 10, 13, 0.95);
+      backdrop-filter: blur(8px); z-index: 100;
+    }
+    .nav-container {
+      max-width: 1200px; margin: 0 auto; padding: 20px 24px;
+      display: flex; justify-content: space-between; align-items: center;
+    }
+    .logo { font-size: 18px; font-weight: 900; letter-spacing: -0.5px; color: #fff; }
+    .logo span { color: var(--accent); }
+    nav ul { display: flex; list-style: none; gap: 28px; }
+    nav a { color: var(--text-muted); text-decoration: none; font-size: 14px; font-weight: 600; transition: color 0.2s; }
+    nav a:hover { color: #fff; }
+    .btn-contact {
+      background: var(--text); color: var(--bg); padding: 8px 18px;
+      border-radius: 4px; font-size: 13px; font-weight: 700; text-decoration: none;
+    }
+    
+    .hero {
+      max-width: 1200px; margin: 0 auto; padding: 90px 24px 70px;
+    }
+    .hero-tag {
+      font-family: 'JetBrains Mono', monospace; font-size: 12px;
+      color: var(--accent); font-weight: 700; margin-bottom: 16px;
+    }
+    .hero h1 {
+      font-size: clamp(32px, 5vw, 56px); font-weight: 900;
+      line-height: 1.15; letter-spacing: -1.5px; margin-bottom: 24px;
+    }
+    .hero p {
+      font-size: 17px; color: var(--text-muted); max-width: 640px;
+      line-height: 1.65; margin-bottom: 36px;
+    }
+    .hero-actions { display: flex; gap: 14px; }
+    .btn-primary {
+      background: var(--accent); color: #fff; padding: 13px 26px;
+      border-radius: 4px; font-size: 15px; font-weight: 700; text-decoration: none;
+    }
+    .btn-secondary {
+      border: 1px solid var(--border); color: var(--text); padding: 13px 26px;
+      border-radius: 4px; font-size: 15px; font-weight: 600; text-decoration: none;
+    }
+
+    .practices {
+      max-width: 1200px; margin: 0 auto; padding: 60px 24px 100px;
+      display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 24px;
+    }
+    .practice-card {
+      background: var(--card-bg); border: 1px solid var(--border);
+      border-radius: 8px; padding: 32px 28px;
+    }
+    .practice-num { font-family: 'JetBrains Mono', monospace; font-size: 12px; color: var(--accent); margin-bottom: 14px; font-weight: 700; }
+    .practice-card h3 { font-size: 20px; font-weight: 800; margin-bottom: 12px; letter-spacing: -0.5px; }
+    .practice-card p { font-size: 14px; color: var(--text-muted); line-height: 1.6; }
+
+    footer {
+      border-top: 1px solid var(--border); padding: 50px 24px;
+      text-align: center; font-size: 13px; color: var(--text-muted);
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="nav-container">
+      <div class="logo">ACRO <span>CONSULTING</span></div>
+      <nav>
+        <ul>
+          <li><a href="#about">소개</a></li>
+          <li><a href="#practices">자문 영역</a></li>
+          <li><a href="#cases">사례 분석</a></li>
+          <li><a href="#contact" class="btn-contact">상담 문의</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero" id="about">
+      <div class="hero-tag">EXECUTIVE STRATEGY & TRANSFORMATION</div>
+      <h1>비즈니스의 복잡성을 꿰뚫는<br>실행형 경영 자문 파트너</h1>
+      <p>시장 진단부터 운영 프로세스 최적화까지, 축적된 산업별 전문성을 기반으로 지속 가능한 기업 성장의 실질적인 해법을 제시합니다.</p>
+      <div class="hero-actions">
+        <a href="#contact" class="btn-primary">서비스 소개서 요청 →</a>
+        <a href="#practices" class="btn-secondary">자문 영역 살펴보기</a>
+      </div>
+    </section>
+
+    <section class="practices" id="practices">
+      <div class="practice-card">
+        <div class="practice-num">PRACTICE 01</div>
+        <h3>경영 전략 및 비즈니스 모델 재설계</h3>
+        <p>변화하는 산업 생태계와 경쟁 구도를 정밀 진단하여 기업의 핵심 역량을 극대화하는 중장기 로드맵을 수립합니다.</p>
+      </div>
+      <div class="practice-card">
+        <div class="practice-num">PRACTICE 02</div>
+        <h3>디지털 전환(DX) 및 프로세스 최적화</h3>
+        <p>비효율적인 업무 흐름을 데이터 기반으로 재구조화하고 ERP 및 자동화 솔루션 도입을 자문합니다.</p>
+      </div>
+      <div class="practice-card">
+        <div class="practice-num">PRACTICE 03</div>
+        <h3>기업 가치 제고 및 브랜드 아키텍처</h3>
+        <p>지속 가능한 신뢰를 형성하기 위한 브랜드 거버넌스와 이해관계자 커뮤니케이션 전략을 지원합니다.</p>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <p>© 2026 ACRO Consulting Group. All rights reserved. | Responsive Web Architecture Showcase</p>
+  </footer>
+</body>
+</html>
